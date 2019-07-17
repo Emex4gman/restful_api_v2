@@ -7,7 +7,7 @@ var middlewareObj = {};
 
 // Verify Token
 
-middlewareObj.verifytoken = function(req, res, next) {
+middlewareObj.verifytoken = (req, res, next) => {
     // Get auth header value
     const bearerHeader = req.headers['authorization'];
     // Check if bearer is undefined
