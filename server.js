@@ -45,7 +45,9 @@ app.get("/", (req, res) => {
 
 //Require Notes routes
 require('./app/routes/note.routes')(app);
-require("./app/routes/getToken.routes")(app);
+//require("./app/routes/getToken.routes")(app);
+var getToken = require("./app/routes/getToken.routes");
+app.use(getToken);
 
 app.listen(5000, ()=> {
     console.log("server on 5000")

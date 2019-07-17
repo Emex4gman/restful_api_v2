@@ -1,6 +1,7 @@
-module.exports = (app) => {
+    var express = require("express");
     var jwt = require("jsonwebtoken");
-
+    var app = express();
+    
     app.get("/login", (req, res) =>{
         res.json({
             message: "get your token here"
@@ -24,4 +25,5 @@ module.exports = (app) => {
             });
         });
     });
-}
+
+    module.exports = app;
