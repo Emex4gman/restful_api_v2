@@ -3,7 +3,7 @@ module.exports = (app) => {
     var notes = require('../controllers/note.contoller.js');
 
     //Create a new note
-    app.post('/notes', notes.create);
+    app.post('/notes',middleware.verifytoken, notes.create);
 
     //Retrieve all notes
     app.get('/notes', notes.findAll);
