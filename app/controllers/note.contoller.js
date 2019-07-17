@@ -46,7 +46,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-//find a single not with a noteId
+//find a single note with a noteId
 exports.findOne = (req, res) => {
     Note.findById(req.params.noteId)
         .then(note => {
