@@ -1,4 +1,5 @@
 var jwt = require("jsonwebtoken");
+var User = require("../models/user.model")
 
 var middlewareObj = {};
 
@@ -28,5 +29,32 @@ middlewareObj.verifytoken = (req, res, next) => {
     }
   
   }
+
+
+  //check if the user is stored on our database
+  middlewareObj.checkDetails = (req,res,next)=>{
+    var inUsername = req.body.username;
+    var inEmail = req.body.email;
+    var user = {
+      username: inUsername,
+      email: inEmail
+    }
+    console.log(inEmail +" and "+ inUsername);
+    User.find({username: inUsername}, (err, data)=>{
+      // res.json({
+      //   data,
+      //   user
+      // }); 
+      if(data[0].username === user.username && data[0].email === user.email){
+        return next();
+      }else{
+        res.json({
+          message: "wronge details"
+      }); 
+      }
+    });
+ 
+
+  } 
 
 module.exports = middlewareObj

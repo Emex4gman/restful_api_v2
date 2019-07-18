@@ -16,4 +16,5 @@ module.exports = (app) => {
 
     //Delete a Note with noteId
     app.delete('/notes/:noteId',middleware.verifytoken, notes.delete)
+
 }

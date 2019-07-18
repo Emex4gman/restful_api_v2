@@ -32,6 +32,7 @@ mongoose.connect(dbConfig.url, {useNewUrlParser: true}, (err) =>{
     }
 });
 
+app.set("view engine", "ejs");
 
 // define a simple route
 app.get("/", (req, res) => {
